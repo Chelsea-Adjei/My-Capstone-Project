@@ -1,38 +1,25 @@
 const QuizStart = () => {
   return (
     <div>
-      <main className="flex min-h-screen flex-col p12 bg-neutral-100">
-        <header className="border-b shadow-lg">
-          <nav className="max-w-7xl w-full mx-auto py-[10px] px-5 flex items-center justify-between">
+      <main className="flex flex-col min-h-screen bg-neutral-200">
+        <header className="border-b shadow-xl">
+          <nav className="max-w-7xl w-full mx-auto py-[20px] px-5 flex items-center justify-between">
             <h1 className="text-xl font-semibold">
-              Shark<span className="text-1xl text-yellow-400">savvy</span> Quiz
+              Shark<span className="text-1xl text-yellow-600">savvy</span> Quiz
             </h1>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="size-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z"
-              />
-            </svg>
+            <h1>Search</h1>
           </nav>
         </header>
         <section className="max-w-7x1 w-full mx-auto px-5">
-          <div className="flex flex-row p-28">
+          <div className="flex flex-row p-40">
             <div className="flex flex-col gap-7">
-              <h1 className="text-5xl font-thin">
+              <h1 className="text-6xl font-thin">
                 Welcome to
                 <br />
-                <span className="text-6xl font-bold">Sharksavvy Quiz!</span>
+                <span className="text-7xl font-bold">Sharksavvy Quiz!</span>
               </h1>
-              <p className="text-l font-thin italic">
-                Select the options to get started.~
+              <p className="text-xl font-thin italic">
+                Select the options to get started.
               </p>
             </div>
             <div className="w-96 max-w-md mx-auto p-6 bg-white rounded-lg shadow-lg">
