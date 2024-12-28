@@ -1,24 +1,40 @@
+import { useState } from "react";
+import search_icon_light from '../assets/search-w.png'
+import search_icon_dark from '../assets/search-b.png'
+
 const QuizStart = () => {
+
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode)
+  }
   return (
-    <div>
-      <main className="flex flex-col min-h-screen bg-neutral-200">
-        <header className="border-b shadow-xl">
-          <nav className="max-w-7xl w-full mx-auto py-[20px] px-5 flex items-center justify-between">
-            <h1 className="text-xl font-semibold">
-              Shark<span className="text-1xl text-yellow-600">savvy</span> Quiz
+    <div className={`dark:bg-black ${darkMode && "dark"}`}>
+      <main className="flex flex-col min-h-screen bg-sky-200 dark:bg-black">
+        <header className="border-b shadow-xl bg-white dark:bg-indigo-950">
+          <nav className="w-full flex items-center justify-between py-3.5 px-28 ">
+            <h1 className="text-xl font-semibold dark:text-white">
+              Shark<span className="text-1xl text-yellow-600 cursor-pointer">savvy</span> Quiz
             </h1>
-            <h1>Search</h1>
+            <div className=" flex items-center bg-gray-900 py-2.5 px-5 rounded-3xl">  
+            <input className="p-1.5 bg-transparent border-0 outline-0 text-lg max-w-52" type="text" placeholder="Search" />
+
+            <img className="w-5 cursor-pointer" src={search_icon_light} alt=""/>
+            </div> 
+            <button  onClick={toggleDarkMode} className="py-3 px-5 rounded-full font-semibold border-2 border-black hover:scale-105
+            transition-all duration-300 dark:text-white dark:border-white">{darkMode ? "Light" : "Dark"}Mode</button>
           </nav>
         </header>
         <section className="max-w-7x1 w-full mx-auto px-5">
           <div className="flex flex-row p-40">
             <div className="flex flex-col gap-7">
-              <h1 className="text-6xl font-thin">
+              <h1 className="text-6xl font-thin dark:text-white">
                 Welcome to
                 <br />
                 <span className="text-7xl font-bold">Sharksavvy Quiz!</span>
               </h1>
-              <p className="text-xl font-thin italic">
+              <p className="text-xl font-thin italic dark:text-white">
                 Select the options to get started.
               </p>
             </div>
