@@ -6,7 +6,7 @@ const ScoreSummary = () => {
   return (
     <>
         <main className="flex flex-col min-h-screen bg-sky-200">
-            <div className="flex flex-row justify-center mt-12 p-40 gap-24">
+            <div className="flex flex-col sm:flex-row justify-center mt-12 p-40 gap-24">
               <div>
               <h1 className="text-5xl font-light">Quiz Completed!</h1>
               <h2 className="text-5xl pt-4">Your Score...</h2>

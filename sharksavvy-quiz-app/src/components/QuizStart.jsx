@@ -8,14 +8,14 @@ const QuizStart = () => {
     <div>
       <main className="flex flex-col min-h-screen bg-sky-200 dark:bg-black">
         <section className="max-w-7x1 w-full mx-auto px-5 md:p-12">
-          <div className="flex flex-row justify-center items-center p-24 gap-16">
+          <div className="flex flex-col md:flex-row justify-center items-center p-24 gap-16">
             <div className="flex flex-col gap-7 md:flex justify-center">
-              <h1 className="lg:text-6xl md:text-4xl font-thin dark:text-white">
+              <h1 className="text-lg md:text-3xl font-light dark:text-white">
                 Welcome to
                 <br />
-                <span className="text-7xl font-bold">Sharksavvy Quiz!</span>
+                <span className="text-5xl md:text-7xl font-bold">Sharksavvy Quiz!</span>
               </h1>
-              <p className="text-xl font-thin italic dark:text-white">
+              <p className="text-md md:text-2xl font-light italic dark:text-white">
                 Select the options to get started.
               </p>
             </div>
