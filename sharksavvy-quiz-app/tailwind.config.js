@@ -2,9 +2,13 @@
 export default {
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      height: {
+        '100vh': '100vh',
+      },
+    },
   },
   plugins: [],
-  darkMode: 'class'
+  darkMode: "class",
 }
 
