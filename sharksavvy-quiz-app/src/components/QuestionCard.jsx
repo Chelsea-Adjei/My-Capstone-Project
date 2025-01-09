@@ -58,30 +58,30 @@ const QuestionCard = () => {
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
-    <main className="bg-sky-200 h-100vh">
-      <div className="flex flex-col justify-center md:flex-row">
-        <div className="flex flex-col sm:flex-col md:flex-col justify-center mt-12 p-40 gap-24">
+    <main className="bg-sky-200 h-100vh dark:bg-black">
+      <div className="flex flex-col md:flex-row">
+        <div className="flex flex-col sm:ml-16 p-20 xl:px-48 gap-24">
           {questions.length > 0 ? (
-            <div className="flex flex-col gap-7">
+            <div className="flex flex-col justify-center gap-7">
               <p>
                 {currentQuestionIndex + 1} of {questions.length} Questions
               </p>
-              <h1 className="text-blue-700 text-md font-bold md:text-3xl">
+              <h1 className="text-blue-700 text-2xl font-bold md:text-3xl lg:text-4xl ">
                 {currentQuestion.question}
               </h1>
-              <ul className="flex flex-col gap-6">
+              <ul className="flex flex-col justify-center sm:w-80 md:w-full lg:w-full xl:w-full gap-6">
                 {shuffledAnswers.map((answer, i) => (
                   <li
                   key={i}
-                  className={`flex items-center h-10 p-4 border border-blue-300 rounded-md bg-white text-l font cursor-pointer ${
+                  className={`flex items-center h-10 p-4 border border-blue-300 rounded-md bg-white text-lg font cursor-pointer ${
                     isAnswered
                       ? answer === currentQuestion.correct_answer
-                        ? "bg-green-600 text-white"
+                        ? "bg-green-700 text-white"
                         : selectedAnswer === answer
-                        ? "bg-red-500 text-white"
+                        ? "bg-red-600 text-white"
                         : ""
                       : selectedAnswer === answer
-                      ? "bg-blue-700 text-white"
+                      ? "bg-blue-600 text-white"
                       : ""
                   }`}
                   onClick={() => handleAnswerSelect(answer)}
@@ -92,7 +92,7 @@ const QuestionCard = () => {
                 ))}
               </ul>
               <button
-                className="w-full bg-yellow-500 shadow-lg shadow-blue-500/30 font-semibold py-2 px-4 rounded-xl hover:bg-yellow-300"
+                className="sm:w-80 md:w-full lg:w-full xl:w-full bg-yellow-500 shadow-lg shadow-blue-500/30 font-semibold py-2 px-4 rounded-xl hover:bg-yellow-300"
                 onClick={isAnswered ? handleNextQuestion : handleSubmit}
                 disabled={!selectedAnswer}
               >

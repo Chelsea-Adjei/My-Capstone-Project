@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import SearchableSelect from "./shared/search";
 
 const QuizStart = () => {
+  const [categories, setCategories] = useState([]);
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [amount, setAmount] = useState(10);
@@ -9,12 +11,30 @@ const QuizStart = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
+  // Fetch categories from API
+  useEffect(() => {
+    const fetchCategories = async () => {
+      try {
+        const response = await fetch("https://opentdb.com/api_category.php");
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const data = await response.json();
+        setCategories(data.trivia_categories);
+      } catch (error) {
+        setError("Failed to fetch categories.");
+      }
+    };
+
+    fetchCategories();
+  }, []);
+
   const fetchQuestions = async (e) => {
     e.preventDefault();
     setError(false);
     setIsLoading(true);
 
-    const url = `https://opentdb.com/api.php?amount=${amount}&category=${categoryId}&difficulty=${difficulty}&type=multiple`
+    const url = `https://opentdb.com/api.php?amount=${amount}&category=${category}&difficulty=${difficulty}&type=multiple`;
 
     try {
       const response = await fetch(url);
@@ -27,7 +47,6 @@ const QuizStart = () => {
           "No questions found for the selected options. Please try again with different options."
         );
       } else {
-        // Redirect to Quiz Page with questions as state
         navigate("/quiz", { state: { questions: data.results } });
         console.log(data.results);
       }
@@ -42,49 +61,33 @@ const QuizStart = () => {
     <div>
       <main className="flex flex-col min-h-screen bg-sky-200 dark:bg-black">
         <section className="max-w-7x1 w-full mx-auto px-5 md:p-12">
-          <div className="flex flex-col lg:flex-row lg:items-center justify-center items-center p-24 gap-16">
-            <div className="flex flex-col gap-7 md:pl-12 justify-center">
-              <h1 className="text-sm sm:text-2xl md:text-4xl font-light dark:text-white">
+          <div className="flex flex-col xl:flex-row justify-center items-center p-24 gap-24">
+            <div className="flex flex-col gap-7 md:flex justify-center">
+              <h1 className="text-sm md:text-2xl xl:text-xl font-light dark:text-white">
                 Welcome to
                 <br />
-                <span className="text-5xl sm:text-7xl md:text-7xl font-bold">
+                <span className="text-5xl sm:text-5xl md:text-6xl lg:text-1xl xl:text-6xl font-bold">
                   Sharksavvy Quiz!
                 </span>
               </h1>
-              <p className="text-sm sm:lg md:text-xl font-light italic dark:text-white">
+              <p className="text-md md:text-2xl xl:text-xl font-light italic dark:text-white">
                 Select the options to get started.
               </p>
             </div>
-            <div className=" w-96 lg:max-w-3xl xl:max-w-4xl p-4">
-              <div className="p-4 justify-center text-center lg:w-96 h-96 bg-white mb-4 shadow-md rounded-md opacity-90">
+            <div className="w-80 h-80 flex justify-center md:max-w-96 lg:w-96 xl:w-96 mt-18">
+              <div className="p-4 text-center bg-white mb-4 shadow-md rounded-md opacity-90 xl:w-[550px]">
                 <form onSubmit={fetchQuestions}>
-                  {/* Category Selection */}
+                  {/* Searchable Select for Category */}
                   <div className="mb-4">
                     <label className="block text-sm font-medium text-gray-700">
-                      Select Category
+                      Search or Select Category
                     </label>
-                    <input
-                      type="text"
-                      placeholder="Search for a category to start quiz"
-                      className="border px-4 py-2 border-gray-300 rounded-md w-full bg-white text-gray-900"
+                    <SearchableSelect
+                      options={categories}
                       value={category}
-                      onChange={(e) => 
-                       setCategory(e.target.value)}
-                      required
+                      onChange={setCategory}
+                      placeholder="Search or select a category..."
                     />
-                    <ul className="absolute z-10 min-w-80 md:w-80 lg:w-96 mt-1 bg-white border rounded-md h-60 overflow-y-auto">
-                      <li className="px-4 py-2 cursor-pointer hover:bg-blue-400">General Knowledge</li>
-                      <li className="px-4 py-2 cursor-pointer hover:bg-blue-400" >Entertainment: Books</li>
-                      <li className="px-4 py-2 cursor-pointer hover:bg-blue-400">Entertainment: Film</li>
-                      <li className="px-4 py-2 cursor-pointer hover:bg-blue-400" >Entertainment: Music</li>
-                      <li className="px-4 py-2 cursor-pointer hover:bg-blue-400" >Sports</li>
-                      <li className="px-4 py-2 cursor-pointer hover:bg-blue-400">Geography</li>
-                      <li className="px-4 py-2 cursor-pointer hover:bg-blue-400" >Arts</li>
-                      <li className="px-4 py-2 cursor-pointer hover:bg-blue-400" >Animals</li>
-                      <li className="px-4 py-2 cursor-pointer hover:bg-blue-400" >Science & Nature</li>
-                      <li className="px-4 py-2 cursor-pointer hover:bg-blue-400" >Entertainment: Video Games</li>
-                      <li className="px-4 py-2 cursor-pointer hover:bg-blue-400" >History</li>
-                    </ul>
                   </div>
 
                   {/* Difficulty Selection */}
