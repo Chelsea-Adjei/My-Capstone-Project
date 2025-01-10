@@ -81,7 +81,7 @@ const QuestionCard = () => {
                         ? "bg-red-700 text-white"
                         : ""
                       : selectedAnswer === answer
-                      ? "bg-blue-800 text-white"
+                      ? "bg-blue-900 text-white"
                       : ""
                   }`}
                   onClick={() => handleAnswerSelect(answer)}
