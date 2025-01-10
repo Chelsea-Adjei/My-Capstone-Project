@@ -59,7 +59,7 @@ const QuizStart = () => {
 
   return (
     <div>
-      <main className="flex flex-col min-h-screen bg-sky-200 dark:bg-black">
+      <main className="flex flex-col min-h-screen bg-violet-300 dark:bg-black">
         <section className="max-w-7x1 w-full mx-auto px-5 md:p-12">
           <div className="flex flex-col xl:flex-row justify-center items-center p-24 gap-24">
             <div className="flex flex-col gap-7 md:flex justify-center">

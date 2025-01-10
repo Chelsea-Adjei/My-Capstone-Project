@@ -16,11 +16,11 @@ const ScoreSummary = () => {
   };
 
   return (
-    <main className="flex flex-col min-h-screen dark:bg-black bg-sky-200">
+    <main className="flex flex-col min-h-screen dark:bg-black bg-violet-300">
       <div className="flex flex-col md:flex-row justify-center items-center p-20 gap-24">
         <div>
           <h1 className="text-lg sm:text-2xl md:text-xl lg:text-3xl xl:text-4xl font-light dark:text-white">Quiz Completed!</h1>
-          <h2 className="text-2xl xl:text-4xl pt-4 dark:text-white">Your Score...</h2>
+          <h2 className="text-2xl xl:text-4xl pt-4 font-semibold dark:text-white">Your Score...</h2>
           <div className="flex flex-col lg:flex-col items-center border border-yellow-500 shadow-xl w-60
            sm:w-72 md:w-80 xl:w-96 lg:max-w-md lg:mx-auto mt-8 p-4 gap-7 h-96 overflow-y-auto rounded-md bg-slate-100">
             <h1 className="text-lg font-bold">Summary of Answers</h1>
