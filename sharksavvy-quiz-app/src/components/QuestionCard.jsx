@@ -73,15 +73,15 @@ const QuestionCard = () => {
                 {shuffledAnswers.map((answer, i) => (
                   <li
                   key={i}
-                  className={`flex items-center h-10 p-4 border border-blue-300 rounded-md bg-white text-md font cursor-pointer ${
+                  className={`flex items-center h-10 p-4 border border-blue-300 rounded-md bg-slate-200 text-md font cursor-pointer ${
                     isAnswered
                       ? answer === currentQuestion.correct_answer
-                        ? "bg-correct text-white"
+                        ? "text-correct font-extrabold"
                         : selectedAnswer === answer
-                        ? "bg-wrong text-white"
+                        ? "text-wrong font-extrabold"
                         : ""
                       : selectedAnswer === answer
-                      ? "bg-selected text-white"
+                      ? "text-selected font-extrabold"
                       : ""
                   }`}
                   onClick={() => handleAnswerSelect(answer)}
