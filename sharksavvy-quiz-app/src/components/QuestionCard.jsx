@@ -66,7 +66,7 @@ const QuestionCard = () => {
               <p>
                 {currentQuestionIndex + 1} of {questions.length} Questions
               </p>
-              <h1 className="text-blue-700 text-1xl sm:text-2xl font-bold md:text-3xl lg:text-4xl ">
+              <h1 className="text-blue-700 text-2xl sm:text-2xl font-bold md:text-3xl lg:text-4xl ">
                 {currentQuestion.question}
               </h1>
               <ul className="flex flex-col justify-center sm:w-80 md:w-full lg:w-full xl:w-full gap-6">
@@ -92,7 +92,7 @@ const QuestionCard = () => {
                 ))}
               </ul>
               <button
-                className="sm:w-80 md:w-full lg:w-full xl:w-full bg-yellow-500 shadow-lg shadow-blue-500/30 font-semibold py-2 px-4 rounded-xl hover:bg-yellow-300"
+                className="sm:w-80 md:w-full lg:w-full xl:w-full bg-yellow-500 shadow-lg shadow-blue-500/30 font-semibold mb-12 py-2 px-4 rounded-xl hover:bg-yellow-300"
                 onClick={isAnswered ? handleNextQuestion : handleSubmit}
                 disabled={!selectedAnswer}
               >
