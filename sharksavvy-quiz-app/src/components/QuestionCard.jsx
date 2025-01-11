@@ -66,7 +66,7 @@ const QuestionCard = () => {
               <p>
                 {currentQuestionIndex + 1} of {questions.length} Questions
               </p>
-              <h1 className="text-blue-700 text-1xl sm:text-2xl font-bold md:text-3xl lg:text-4xl ">
+              <h1 className="text-blue-700 text-2xl sm:text-2xl font-bold md:text-3xl lg:text-4xl ">
                 {currentQuestion.question}
               </h1>
               <ul className="flex flex-col justify-center sm:w-80 md:w-full lg:w-full xl:w-full gap-6">
