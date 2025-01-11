@@ -58,7 +58,7 @@ const QuestionCard = () => {
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
-    <main className="bg-violet-300 h-100vh dark:bg-black">
+    <main className="bg-violet-300 min-h-screen dark:bg-black">
       <div className="flex flex-col md:flex-row">
         <div className="flex flex-col sm:ml-16 md:ml-16 p-20 xl:px-48 gap-24">
           {questions.length > 0 ? (
