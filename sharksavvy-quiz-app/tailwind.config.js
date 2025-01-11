@@ -3,6 +3,13 @@ export default {
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
     extend: {
+      colors: {
+        correct: "#047857", 
+        wrong: "#B91C1C",   
+        selected: "#1E3A8A", 
+        buttonHover: "#FBBF24", 
+      },
+
       height: {
         "100vh": "100vh",
       },
