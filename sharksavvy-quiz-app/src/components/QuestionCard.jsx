@@ -76,12 +76,12 @@ const QuestionCard = () => {
                   className={`flex items-center h-10 p-4 border border-blue-300 rounded-md bg-white text-md font cursor-pointer ${
                     isAnswered
                       ? answer === currentQuestion.correct_answer
-                        ? "text-correct font-bold"
+                        ? "bg-correct text-white"
                         : selectedAnswer === answer
                         ? "bg-wrong text-white"
                         : ""
                       : selectedAnswer === answer
-                      ? "text-selected font-bold"
+                      ? "bg-selected text-white"
                       : ""
                   }`}
                   onClick={() => handleAnswerSelect(answer)}
